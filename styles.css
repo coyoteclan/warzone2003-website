@@ -1,0 +1,400 @@
+/* oswald-regular - latin_latin-ext */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/oswald-v57-latin_latin-ext-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* oswald-600 - latin_latin-ext */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 600;
+    src: url('/fonts/oswald-v57-latin_latin-ext-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* oswald-700 - latin_latin-ext */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/fonts/oswald-v57-latin_latin-ext-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* share-tech-mono-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Share Tech Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/share-tech-mono-v16-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* barlow-300 - latin_latin-ext */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Barlow';
+    font-style: normal;
+    font-weight: 300;
+    src: url('/fonts/barlow-v13-latin_latin-ext-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* barlow-regular - latin_latin-ext */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Barlow';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/barlow-v13-latin_latin-ext-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* barlow-500 - latin_latin-ext */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Barlow';
+    font-style: normal;
+    font-weight: 500;
+    src: url('/fonts/barlow-v13-latin_latin-ext-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --bg:        #0a0b08;
+    --bg2:       #111309;
+    --bg3:       #161810;
+    --border:    #2a2e1a;
+    --olive:     #6b7a2a;
+    --olive-lit: #9cb830;
+    --tan:       #c8aa6e;
+    --tan-dim:   #8a7248;
+    --text:      #cdd4b0;
+    --text-dim:  #7a8260;
+    --white:     #eef2df;
+    --red:       #c23b22;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    overflow-x: hidden;
+}
+
+/*  NAV  */
+nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 58px;
+    background: rgba(10,11,8,.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--olive-lit);
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .8rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color .2s;
+}
+nav a:hover { color: var(--olive-lit); }
+
+/*  HERO  */
+#hero {
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 6rem 2rem 4rem;
+position: relative;
+overflow: hidden;
+}
+
+/* grid background */
+#hero::before {
+content: '';
+position: absolute;
+inset: 0;
+background-image:
+linear-gradient(var(--border) 1px, transparent 1px),
+linear-gradient(90deg, var(--border) 1px, transparent 1px);
+background-size: 48px 48px;
+opacity: .4;
+}
+
+/* vignette */
+#hero::after {
+content: '';
+position: absolute;
+inset: 0;
+background: radial-gradient(ellipse at center, transparent 30%, var(--bg) 90%);
+}
+
+.hero-inner { position: relative; z-index: 1; max-width: 780px; }
+
+.hero-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .75rem;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: var(--olive);
+    border: 1px solid var(--olive);
+    display: inline-block;
+    padding: .25rem .9rem;
+    margin-bottom: 1.6rem;
+}
+
+h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(3rem, 9vw, 6.5rem);
+    font-weight: 700;
+    line-height: .95;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-shadow: 0 0 60px rgba(156,184,48,.2);
+}
+
+h1 span { color: var(--olive-lit); }
+
+.hero-sub {
+    margin: 1.4rem auto 2.4rem;
+    max-width: 520px;
+    color: var(--text-dim);
+    font-size: 1.05rem;
+    font-weight: 300;
+}
+
+.btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: .7rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--bg);
+    background: var(--olive-lit);
+    padding: 1rem 2.6rem;
+    border: none;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    transition: background .2s, transform .15s;
+}
+.btn-download:hover {
+    background: var(--white);
+    transform: translateY(-2px);
+}
+.btn-download svg { flex-shrink: 0; }
+
+.hero-note {
+    margin-top: 1rem;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .72rem;
+    color: var(--text-dim);
+    letter-spacing: .08em;
+}
+
+/*  SECTIONS  */
+section { padding: 6rem 2rem; }
+.container { max-width: 900px; margin: 0 auto; }
+
+.section-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .72rem;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: var(--olive);
+    margin-bottom: .6rem;
+}
+
+h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--white);
+    letter-spacing: .04em;
+    margin-bottom: 2.5rem;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 3px;
+    background: var(--olive-lit);
+    margin-top: .5rem;
+}
+
+/*  FEATURES  */
+#features { background: var(--bg2); }
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.feature-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    padding: 1.6rem 1.4rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color .2s;
+}
+.feature-card:hover { border-color: var(--olive); }
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--olive-lit), transparent);
+}
+
+.feature-icon { font-size: 1.8rem; margin-bottom: .8rem; }
+
+.feature-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--tan);
+    margin-bottom: .4rem;
+}
+
+.feature-card p {
+    font-size: .88rem;
+    color: var(--text-dim);
+}
+
+/*  LINKS  */
+
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+}
+
+.link-card {
+    display: block;
+    padding: 1.4rem 1.3rem;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    transition: transform .15s, border-color .2s;
+}
+
+.link-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--olive);
+}
+
+.link-card h3 {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    color: var(--tan);
+    margin-bottom: .35rem;
+}
+
+.link-card p {
+    color: var(--text-dim);
+    font-size: .9rem;
+    margin-bottom: .9rem;
+}
+
+.link-card span {
+    font-family: 'Share Tech Mono', monospace;
+    color: var(--olive-lit);
+    font-size: .75rem;
+}
+
+/*  CREDITS  */
+#credits { background: var(--bg2); }
+
+.credits-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .9rem;
+}
+
+.credits-table td {
+    padding: .65rem .8rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-dim);
+    vertical-align: top;
+}
+
+.credits-table td:first-child {
+    color: var(--tan);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .82rem;
+    white-space: nowrap;
+    width: 1%;
+    padding-right: 1.5rem;
+}
+
+.credits-table a { color: var(--olive-lit); text-decoration: none; }
+.credits-table a:hover { text-decoration: underline; }
+
+/*  FOOTER */
+footer {
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .75rem;
+    color: var(--text-dim);
+    letter-spacing: .08em;
+}
+
+footer a { color: var(--olive); text-decoration: none; }
+
+/*  fade-in on scroll  */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .5s ease, transform .5s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+@media (max-width: 600px) {
+    nav ul { gap: 1rem; }
+    .step { grid-template-columns: 2rem 1fr; }
+}
