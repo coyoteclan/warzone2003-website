@@ -20,7 +20,7 @@ jobs:
           sudo apt purge snap*
           sudo rm -f /etc/apt/sources.list.d/{azure,microsoft}*
           sudo apt update
-          sudo apt install nasm p7zip-full build-essential pkg-config git rustup gcc-mingw-w64-i686 -y
+          sudo apt install nasm build-essential pkg-config git rustup gcc-mingw-w64-i686 -y
           rustup default stable
           rustup target add i686-pc-windows-gnu
 
@@ -36,8 +36,8 @@ jobs:
           export VERSION="$(git tag --list | sort -V | tail -n1)"
           echo $VERSION
           cp target/i686-pc-windows-gnu/release/warzone2003setup.exe ./warzone2003setup-$VERSION-windows.exe
-          p7zip warzone2003setup-$VERSION-windows.exe
-          mv ./warzone2003setup-$VERSION-windows.exe.7z ../files/warzone2003setup-$VERSION-windows.7z
+          # p7zip warzone2003setup-$VERSION-windows.exe
+          mv ./warzone2003setup-$VERSION-windows.exe ../files/
           cd ..
           rm -rf warzone2003setup
 
