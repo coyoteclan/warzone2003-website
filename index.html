@@ -47,20 +47,20 @@
 
 <section id="hero">
 <div class="hero-inner">
-    <div class="hero-tag">Call of Duty 1 · v1.1</div>
+    <div class="hero-tag" id="download">Call of Duty 1 · v1.1</div>
     <h1>Battle<br><span>Royale</span></h1>
     <p class="hero-sub">
     Drop in, fight, survive, only one shall stand.<br>
     </p>
-    <a id="download" class="btn-download" href="#" target="_blank" rel="noopener">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <a class="btn-download" href="#" onclick="handleDownload(event)">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
         <polyline points="7 10 12 15 17 10"/>
         <line x1="12" y1="15" x2="12" y2="3"/>
-    </svg>
-    Download
+      </svg>
+      <span id="dl-label">Download</span>
     </a>
-    <p class="hero-note">↓ &nbsp;for hosting, see README.md in the repo (link at bottom)</p>
+    <p class="hero-note" id="dl-note">↓ &nbsp;for hosting, see <a href="https://github.com/cod1raph/cod1-battleroyale#" style="color:var(--olive-lit)">README.md</a></p>
 </div>
 </section>
 
@@ -158,6 +158,46 @@ const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+const BASE = 'https://warzone2003.com/files/';
+
+function detectOS() {
+  const ua = navigator.userAgent;
+  if (/Windows/i.test(ua))    return 'windows';
+  if (/Linux/i.test(ua))      return 'linux';
+  return 'unknown';
+}
+
+const RELEASES = {
+  windows: { file: 'warzone2003setup-0.1.0-windows.7z', label: 'Download for Windows' },
+  linux:   { file: 'warzone2003setup-0.1.0-linux.7z',       label: 'Download for Linux'   },
+  unknown: { file: null,                               label: 'Download' },
+};
+
+function initDownloadButton() {
+  const os = detectOS();
+  const rel = RELEASES[os];
+  const label = document.getElementById('dl-label');
+  const note  = document.getElementById('dl-note');
+  label.textContent = rel.label;
+  if (os === 'unknown') {
+    note.innerHTML = 'OS not detected — pick your build <a href="https://github.com/coyoteclan/warzone2003-website/tree/main/files" style="color:var(--olive-lit)">here</a>.';
+  }
+}
+
+function handleDownload(e) {
+  e.preventDefault();
+  const os = detectOS();
+  const rel = RELEASES[os];
+  if (rel.file) {
+    window.location.href = BASE + rel.file;
+  } else {
+    window.open('https://warzone2003.com/files/', '_blank');
+  }
+}
+
+initDownloadButton();
+
 </script>
 
 </body>

@@ -37,7 +37,7 @@ jobs:
           echo $VERSION
           cp target/i686-pc-windows-gnu/release/warzone2003setup.exe ./warzone2003setup-$VERSION-windows.exe
           p7zip warzone2003setup-$VERSION-windows.exe
-          mv ./warzone2003setup-$VERSION-windows.exe.7z ../files/
+          mv ./warzone2003setup-$VERSION-windows.exe.7z ../files/warzone2003setup-$VERSION-windows.7z
           cd ..
           rm -rf warzone2003setup
 
