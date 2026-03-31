@@ -20,7 +20,8 @@ jobs:
           sudo apt purge snap*
           sudo rm -f /etc/apt/sources.list.d/{azure,microsoft}*
           sudo apt update
-          sudo apt install nasm build-essential pkg-config git rustup gcc-mingw-w64-i686 -y
+          sudo apt install nasm build-essential pkg-config git rustup gcc-mingw-w64-i686 binutils-mingw-w64-i686 -y
+          sudo ln -s /usr/bin/i686-w64-mingw32-windres /usr/bin/windres
           rustup default stable
           rustup target add i686-pc-windows-gnu
 
