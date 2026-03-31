@@ -1,0 +1,51 @@
+name: Build Linux Setup
+
+on: workflow_dispatch
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install Deps
+        shell: bash
+        run: |
+          # sudo snap remove *
+          sudo snap remove firefox
+          sudo apt purge snap*
+          sudo rm -f /etc/apt/sources.list.d/{azure,microsoft}*
+          sudo apt update # && sudo apt upgrade -y
+          sudo apt install nasm p7zip-full build-essential pkg-config git rustup -y
+          rustup default stable
+
+      - name: Clone Warzone 2003 Setup Repo
+        run: |
+          git clone https://gitlab.com/kazam0180/warzone2003setup.git
+
+      - name: Compile and Copy
+        run: |
+          cd warzone2003setup
+          cargo build --release
+          git fetch --tags
+          export VERSION="$(git tag --list | sort -V | tail -n1)"
+          echo $VERSION
+          cp target/release/warzone2003setup ./warzone2003setup-$VERSION-linux
+          p7zip warzone2003setup-$VERSION-linux
+          mv ./warzone2003setup-$VERSION-linux.7z ../files/
+          cd ..
+          rm -rf warzone2003setup
+
+      - name: Commit
+        run: |
+          ls -la
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add files
+          git commit -m "chore: upload warzone2003setup linux binary" || echo "No changes to commit"
+          git push
