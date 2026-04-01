@@ -1,38 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:image" content="https://example.com/image.jpg">
-    <meta name="twitter:image" content="https://example.com/image.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <title>Warzone 2003</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Home - Warzone2003</title>
+
+<link rel="icon" href="favicon.png" type="image/png">
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Battle Royale mod for Call of Duty ® (2003). Download & Play Now! No purchase required!">
+<meta name="keywords" content="Call of Duty, CoD, gaming, modding, Battleroyale, fps, download, free download, multiplayer, open source">
+<meta name="author" content="Kazam">
+<link rel="canonical" href="https://warzone2003.com/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://warzone2003.com/">
+<meta property="og:title" content="Warzone2003">
+<meta property="og:description" content="Battle Royale mod for Call of Duty ® (2003). Download & Play Now! No purchase required!">
+
+<!-- Twitter Card -->
+<meta name="twitter:title" content="Warzone2003">
+<meta name="twitter:description" content="Battle Royale mod for Call of Duty ® (2003). Download & Play Now! No purchase required!">
+
+<!--
+<link rel="preload" href="/fonts/oswald-v57-latin_latin-ext-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/oswald-v57-latin_latin-ext-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/oswald-v57-latin_latin-ext-regular.woff2" as="font" type="font/woff2" crossorigin>
+-->
+
+<link href="styles.css" rel="preload" as="style" />
+<link href="styles.css" rel="stylesheet" />
+
+<!-- <link href="screenshots/1.avif" rel="preload" as="image"> -->
 </head>
 <body>
-    <h1>Welcome to Warzone 2003</h1>
-    <table>
-        <tr>
-            <th>Tutorial</th>
-            <th>Link</th>
-        </tr>
-        <tr>
-            <td>Radiant Tuts</td>
-            <td><a href="https://example.com/radianttuts">Radiant Tutorials Link</a></td>
-        </tr>
-        <tr>
-            <td>Parachute Table</td>
-            <td><a href="https://example.com/parachutetuts">Parachute Tutorials Link</a></td>
-        </tr>
+
+<nav>
+<a class="nav-logo" href="#">Warzone 2003</a>
+<ul>
+    <li><a href="#download">Download</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#links">Useful Links</a></li>
+    <li><a href="#credits">Credits</a></li>
+</ul>
+</nav>
+
+<header id="hero">
+<div class="hero-inner">
+    <div class="hero-tag" id="download">Call of Duty 1 · v1.1</div>
+    <h1>Battle<br><span>Royale</span></h1>
+    <p class="hero-sub">
+    Drop in, fight, survive, only one shall stand.<br>
+    </p>
+    <a class="btn-download" href="#" onclick="handleDownload(event)">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      <span id="dl-label">Download</span>
+    </a>
+    <p class="hero-note" id="dl-note">↓ &nbsp;for hosting, see <a href="https://github.com/cod1raph/cod1-battleroyale#" style="color:var(--olive-lit)">README.md</a></p>
+</div>
+</header>
+
+<main>
+<section id="features">
+<div class="container reveal">
+    <p class="section-label">// gametype features</p>
+    <h2>What's waiting for you</h2>
+    <div class="features-grid">
+    <div class="feature-card">
+        <div class="feature-icon">🪂</div>
+        <h3>Skydiving Insertion</h3>
+        <p>Jump from altitude and choose your landing spot across the map.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">🔴</div>
+        <h3>Shrinking Zone</h3>
+        <p>The play area contracts over time. Stay inside or take damage.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">📦</div>
+        <h3>Weapon Crates</h3>
+        <p>Loot scattered crates to arm yourself. Positioning is everything.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">🎬</div>
+        <h3>Last Kill Slow Motion</h3>
+        <p></p>
+    </div>
+    </div>
+</div>
+</section>
+
+<section id="links">
+  <div class="container reveal">
+    <p class="section-label">// worth checking out</p>
+    <h2>Useful Links</h2>
+
+    <div class="links-grid">
+      <a class="link-card" href="https://cod.pm/guide/32b0b3/how-to-set-a-custom-screen-resolution-in-game" target="_blank" rel="noopener">
+        <h3>Custom Resolution</h3>
+        <p>Guide for setting a custom in-game screen resolution.</p>
+        <span>cod.pm guides →</span>
+      </a>
+
+      <a class="link-card" href="https://cod.pm/guide/f8cfc5/color-codes-in-call-of-duty" target="_blank" rel="noopener">
+        <h3>Color Codes</h3>
+        <p>Quick reference for text color formatting in Call of Duty.</p>
+        <span>cod.pm guides →</span>
+      </a>
+
+      <a class="link-card" href="https://cod.pm/faq" target="_blank" rel="noopener">
+        <h3>CoD.PM FAQs</h3>
+        <p>Frequently asked questions about cod.pm & CoD1</p>
+        <span>cod.pm faqs →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="credits">
+<div class="container reveal">
+    <p class="section-label">// attributions</p>
+    <h2>Credits</h2>
+    <table class="credits-table">
+    <tbody>
+        <tr><td>MiscMod</td><td><a href="https://github.com/cato-a/CoDaM_MiscMod" target="_blank" rel="noopener">cato-a / CoDaM_MiscMod</a></td></tr>
+        <tr><td>Script docs</td><td><a href="https://www.ibuddie.at/libcod" target="_blank" rel="noopener">iBuddie's libcod documentation</a></td></tr>
+        <tr><td>Community</td><td><a href="https://killtube.org" target="_blank" rel="noopener">Killtube.org</a></td></tr>
+        <tr><td>Map</td><td><a href="https://vcodmods.com/maps/zh-elusive-battle-royal-template" target="_blank" rel="noopener">zh_Elusive — Battle Royale Template</a></td></tr>
+        <tr><td>Map collection</td><td><a href="https://github.com/thegoog1337/TheGoog-CoD1-map-collection" target="_blank" rel="noopener">TheGoog-CoD1-map-collection</a></td></tr>
+        <tr><td>Radiant tuts</td><td><a href="https://www.youtube.com/playlist?list=PLb5ihZo7ved010imAmoZxa5C5946Oi-9z" target="_blank" rel="noopener">TheGoog's CoD1 Radiant Tutorials</a> &amp; <a href="https://www.youtube.com/@hcliz/videos" target="_blank" rel="noopener">zilch's CoDRadiant Beginner Series</a></td></tr>
+        <tr><td>Parachute</td><td><a href="https://gitlab.com/kazam0180/cod1-battleroyale/-/blob/main/client/weapons/mp/br_parachute_mp" target="_blank" rel="noopener">kazam0180 / cod1-battleroyale</a></td></tr>
+        <tr><td>Compass</td><td><a href="https://github.com/eyza-cod2/zpam3" target="_blank" rel="noopener">eyza-cod2 / zpam3</a></td></tr>
+        <tr><td>Soldier icon</td><td><a href="https://www.flaticon.com/free-icon/soldier_6142078" target="_blank" rel="noopener">Flaticon #6142078</a></td></tr>
+        <tr><td>Sounds</td><td>
+        <a href="https://freesound.org/people/arnicholas12/sounds/702765/" target="_blank" rel="noopener">arnicholas12</a> ·
+        <a href="https://freesound.org/people/newlocknew/sounds/732379/" target="_blank" rel="noopener">newlocknew</a> ·
+        <a href="https://freesound.org/people/2create/sounds/620310/" target="_blank" rel="noopener">2create</a>
+        </td></tr>
+        <tr><td>CoD1 Zombies</td><td><a href="https://github.com/BraXi/CoD1_Zombies_1.2_Mod" target="_blank" rel="noopener">BraXi / CoD1_Zombies_1.2_Mod</a></td></tr>
+    </tbody>
     </table>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Warzone 2003",
-        "url": "https://example.com"
-    }
-    </script>
-    <a href="https://example.com/download" class="btn-download">Download</a>
+</div>
+</section>
+</main>
+
+<footer>
+<p>
+    <a href="https://github.com/cod1raph/cod1-battleroyale" target="_blank" rel="noopener" style="color:var(--olive-lit)">github.com/cod1raph/cod1-battleroyale</a>
+    &nbsp;·&nbsp; not affiliated with Activision
+</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+const BASE = 'https://warzone2003.com/files/';
+
+function detectOS() {
+  const ua = navigator.userAgent;
+  if (/Windows/i.test(ua))    return 'windows';
+  if (/Linux/i.test(ua))      return 'linux';
+  return 'unknown';
+}
+
+const RELEASES = {
+  windows: { file: 'warzone2003setup-0.3.3-windows.exe', label: 'Download for Windows' },
+  linux:   { file: 'warzone2003setup-0.3.3-linux',       label: 'Download for Linux'   },
+  unknown: { file: null,                               label: 'Download' },
+};
+
+function initDownloadButton() {
+  const os = detectOS();
+  const rel = RELEASES[os];
+  const label = document.getElementById('dl-label');
+  const note  = document.getElementById('dl-note');
+  label.textContent = rel.label;
+  if (os === 'unknown') {
+    note.innerHTML = 'OS not detected — pick your build <a href="https://github.com/coyoteclan/warzone2003-website/tree/main/files" style="color:var(--olive-lit)">here</a>.';
+  }
+}
+
+function handleDownload(e) {
+  e.preventDefault();
+  const os = detectOS();
+  const rel = RELEASES[os];
+  if (rel.file) {
+    window.location.href = "#links";
+    window.location.href = BASE + rel.file;
+  } else {
+    window.open('https://github.com/coyoteclan/warzone2003-website/tree/main/files', '_blank');
+  }
+}
+
+initDownloadButton();
+
+</script>
+
 </body>
 </html>
