@@ -4,16 +4,8 @@ on: workflow_dispatch
 
 jobs:
   windows_build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Run Windows Build
-        uses: coyoteclan/warzone2003-website/.github/workflows/build-win-setup.yml@main
+    uses: coyoteclan/warzone2003-website/.github/workflows/build-win-setup.yml@main
 
   linux_build:
-    runs-on: ubuntu-latest
     needs: windows_build
-
-    steps:
-      - name: Run Linux Build
-        uses: coyoteclan/warzone2003-website/.github/workflows/build-linux-setup.yml@main
+    uses: coyoteclan/warzone2003-website/.github/workflows/build-linux-setup.yml@main
