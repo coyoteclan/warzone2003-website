@@ -2,6 +2,9 @@ name: Run Builds
 
 on: workflow_dispatch
 
+permissions:
+  contents: write
+
 jobs:
   windows_build:
     uses: coyoteclan/warzone2003-website/.github/workflows/build-win-setup.yml@main
