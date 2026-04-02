@@ -1,0 +1,23 @@
+name: Run Builds
+
+on: workflow_dispatch
+
+jobs:
+  windows_build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run Windows Build
+        uses: actions/workflow-run@v1
+        with:
+          workflow: build-win-setup
+
+  linux_build:
+    runs-on: ubuntu-latest
+    needs: windows_build
+
+    steps:
+      - name: Run Linux Build
+        uses: actions/workflow-run@v1
+        with:
+          workflow: build-linux-setup
